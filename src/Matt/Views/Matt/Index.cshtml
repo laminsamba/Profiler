@@ -1,0 +1,91 @@
+﻿@* add a model binding so that we can pass the addMealProfiles list to this page for easy reference. *@
+
+@model List<Matt.Models.AddMealProfile>
+
+
+@* the compiler gave me advice to use 'Component.DataAnnotation, but then wouldn't take it, so I used the one I used for the AddMealProfile, and I think its working. *@
+
+
+@using System.ComponentModel.DataAnnotations;
+
+
+@{
+    ViewBag.Title = "Meal Profiler";  // you can set the ViewBag here without using the at symbol, since all the code is in the at symbol block
+                                      //  If you set a ViewBag in the controller, you need to use the at symbol before refeening it.
+                                      // if you bind the return value in the controller, yo ucan just reference its properties by using
+                                      // and at symbol.Property
+
+    ViewBag.ShowBackBar = true;
+
+
+}
+
+
+@*
+    this can be used to display results .  I'll use it again on my ingredient results page.
+
+    ViewBag.MinutesSpentPreparing = minutesSpentPreparing;
+    ViewBag.AverageTimeSpentPreparingMeals = (minutesSpentPreparing / (double)numberOfMeals);
+    <h1 class="stats-header">Welcome to the NewRoots Meal Profiler and Ingredient Library!</h1>
+*@
+
+
+
+
+<div class="stats">
+    <h2 class="stats-header h3">Meal Expense Running Totals</h2>
+
+    <div class="stats-left">
+        <span class="stats-number">@ViewBag.MinutesSpentPreparing</span>: Total Minutes Spent Preparing
+    </div>
+    <div class="stats-right">
+        <span class="stats-number">@ViewBag.AverageTimeSpentPreparingMeals</span> : Average Time Spent per Meal
+    </div>
+    <div class="stats-left">
+        <span class="stats-number">@ViewBag.TotalFoodCost</span> : Total Food Cost (U.S. $ Dollars)
+    </div>
+    <div class="stats-right">
+        <span class="stats-number">@ViewBag.AverageCostPerMeal</span> : Average Cost Per Meal
+    </div>
+    <div class="stats-left">
+        <span class="stats-number">@ViewBag.MinutesPreparingPerDollarSpent</span> : Minutes Spent Preparing Per Dollar Spent
+    </div>
+    <div class="stats-right">
+        <span class="stats-number">@ViewBag.CostPerMinuteOfPreparation</span> : Dollars Spent Per Minute Preparing
+    </div>
+</div>
+
+<h3>@ViewBag.Title</h3>
+
+<table class="table">
+    <tr>
+        <th>Meal Goal</th>
+        <th>Meal Cost</th>
+        <th>Meal Prep Time</th>
+        @* i couldn't get the hidden class to work...ill leave the comment in as an idea to research later. *@
+        <th class="">Meal Author</th>
+        <th>&nbsp;</th>
+    </tr>
+    @* we are working with single AddMealProfile objects at a time here in the Model of List<AddMealProfile> objects. *@
+    @foreach (var addMealProfile in Model)
+    {
+        <tr>
+            <!-- Meal.Name will return the name of the Meal Goal. -->
+            <td>@addMealProfile.Meal.Name</td>
+            <td>@addMealProfile.MealCost</td>
+            <td>@addMealProfile.PrepTime</td>
+            <td class="">@addMealProfile.MealAuthor</td>
+            <td>
+                <div class="pull-right">
+                    <a href="#" class="btn btn-warning btn-sm margin-right">
+                        <span class="glyphicon glyphicon-edit"></span><span class="hidden-xs"> Edit</span>
+                    </a>
+                    <a href="#)" class="btn btn-danger btn-sm">
+                        <span class="glyphicon glyphicon-trash"></span><span class="hidden-xs"> Delete</span>
+                    </a>
+                </div>
+            </td>
+        </tr>
+    }
+</table>
+

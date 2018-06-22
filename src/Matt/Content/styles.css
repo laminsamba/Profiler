@@ -1,0 +1,581 @@
+﻿/***********************************************************/
+/***********************************************************/
+/********************* Web Font Styling ********************/
+/***********************************************************/
+/***********************************************************/
+
+@font-face {
+    font-family: 'Abolition Regular';
+    src: url('../fonts/abolition-regular-webfont.eot');
+    src: url('../fonts/abolition-regular-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/abolition-regular-webfont.woff') format('woff'), url('../fonts/abolition-regular-webfont.ttf') format('truetype');
+}
+
+
+/***********************************************************/
+/***********************************************************/
+/********************* End Web Font Styling ****************/
+/***********************************************************/
+/***********************************************************/
+
+
+
+/***********************************************************/
+/***********************************************************/
+/********************* Base Layout Styling *****************/
+/***********************************************************/
+/***********************************************************/
+
+/* forces the padding and border into the total width and height of the elements. The * is the universal selector, and applies to all elements on the page. */
+* {
+    box-sizing: border-box;
+}
+
+
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    background: yellow;
+}
+
+/* creating sticky-footer on small viewport heights and greater */
+.wrap {
+    min-height: calc(100vh - 126px); /*   -81 secondary footer  -45 main-fixed-footer */
+}
+
+
+/***********************************************************/
+/***********************************************************/
+/********************* End Base Layout Styling *************/
+/***********************************************************/
+/***********************************************************/
+
+
+/***********************************************************/
+/***********************************************************/
+/********************* Main Navigation *********************/
+/***********************************************************/
+/***********************************************************/
+
+
+.backbar a:visited {
+    color: lime;
+}
+
+.backbar {
+    color: lime;
+    background: linear-gradient(0deg, black, transparent 80%), linear-gradient(180deg, black, transparent 80%), darkgrey;
+    width: 100%;
+    height: 40px;
+}
+
+
+.navbar {
+    border-bottom: 2px solid black;
+}
+
+/* styling for the newroots logo and slogan on the main nav bar  */
+.newrootsBrand {
+    height: 70px;
+    width: 200px;
+}
+
+/* this allows for scrolling of the 'fresh stop market' dropdown menu */
+.dropdown-menu {
+    max-height: 450px;
+    overflow-y: auto;
+    width: 300px;
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(0deg, black, transparent 80%), linear-gradient(180deg, black, transparent 80%), darkgrey;
+}
+
+    /* color of the links in the dropdown menus */
+    .dropdown-menu a {
+        color: lightgreen;
+    }
+
+        .dropdown-menu a:hover {
+            text-decoration: none;
+            color: lime;
+        }
+
+/* main-nav link styling */
+.nav-link {
+    margin-left: 10px;
+}
+
+    /* main-nav link styling */
+    .nav-link:hover {
+        color: black;
+    }
+
+
+/***********************************************************/
+/***********************************************************/
+/********************* End Main Navigation *****************/
+/***********************************************************/
+/***********************************************************/
+
+
+/***********************************************************/
+/***********************************************************/
+/********************* Header Styling **********************/
+/***********************************************************/
+/***********************************************************/
+
+/* Container div holding the image and the text */
+.backgroundHeader1 {
+    position: relative;
+    text-align: center;
+    box-shadow: 0 3.5px 0 0 black;
+}
+
+/*  header image styling */
+.backgroundHeader {
+    height: 300px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+
+/***********************************************************/
+/***********************************************************/
+/******************End Header Styling **********************/
+/***********************************************************/
+/***********************************************************/
+
+
+/***********************************************************/
+/***********************************************************/
+/********************* Add Page: Form: Create Meal *********/
+/***********************************************************/
+/***********************************************************/
+
+#welcome-create {
+    margin-top: 50px;
+}
+
+
+#top-form {
+    margin: 40px;
+}
+
+
+
+
+
+
+
+#inlineCheckbox1 {
+    margin-left: 0;
+}
+
+#inlineCheckbox2 {
+    margin-left: 0;
+}
+
+
+
+
+#formGroupExampleInput {
+    width: 70px;
+    margin-left: 0 auto;
+}
+
+
+
+
+
+
+
+
+
+/***********************************************************/
+/***********************************************************/
+/********************* End Page Intro Styling **************/
+/***********************************************************/
+/***********************************************************/
+/***********************************************************/
+/***********************************************************/
+/********************* Base Elements Styling ***************/
+/***********************************************************/
+/***********************************************************/
+/* increasing the surface clickable area for links to aid in accessibility */
+a:focus {
+    border: none;
+    color: blue;
+}
+
+a {
+    padding: 10px;
+}
+
+
+p {
+    width: 95%;
+    max-width: 800px;
+    text-align: center;
+    font-size: .9em;
+    color: black;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin: 12px auto;
+}
+
+    /*  links in paragraphs elements */
+    p > a {
+        text-align: center;
+        font-size: 1.2em;
+        color: red;
+        margin: 0 auto;
+        text-decoration: underline;
+    }
+
+h1 {
+    font-size: 1.25em;
+    color: firebrick;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px 0;
+}
+
+h2 {
+    margin: 20px 0;
+}
+
+    h2 > a {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: .6em;
+        padding: 20px 0;
+        margin: 20px auto;
+        color: firebrick;
+        text-decoration: underline;
+    }
+
+h3 {
+    margin-top: 20px;
+    text-align: center;
+    padding: 20px;
+    font-weight: bold;
+}
+
+h4 {
+    margin-top: 20px;
+    text-align: center;
+    padding: 20px;
+    font-weight: bold;
+}
+
+/*  Changing the default bullets for lists to no list-style */
+li {
+    list-style-type: none;
+}
+
+
+/***********************************************************/
+/***********************************************************/
+/********************* End Base Elements Styling ***********/
+/***********************************************************/
+/***********************************************************/
+
+
+/***********************************************************/
+/***********************************************************/
+/********************* Footers Styling *********************/
+/***********************************************************/
+/***********************************************************/
+
+
+.main-footer { /* fixed-footer */
+    position: fixed;
+    bottom: 0;
+    z-index: 999;
+    width: 100%;
+    text-align: center;
+    height: 45px;
+    padding-top: 20px;
+    border-top: 2px solid black;
+    background: linear-gradient(0deg, black, transparent 80%), linear-gradient(180deg, black, transparent 80%), red;
+}
+
+.secondary-footer { /* sticky-footer  */
+    position: relative;
+    text-align: center;
+    width: 100%;
+    background: grey;
+    padding: 20px 20px 20px 20px; /* this gives the paragraph elements some breathing room  */
+    margin: 0; /*  0 margin to force sticky footer  */
+    margin-bottom: 45px; /* margin to clear at scroll's end the fixed-footer's constant bottom 45px height */
+    border-top: solid black 2px;
+    background: linear-gradient(0deg, lightgreen, transparent 85%), linear-gradient(180deg, lightgreen, transparent 85%), darkgreen;
+}
+
+    .secondary-footer p {
+        text-align: left;
+    }
+
+/* to-top href=#top circle-styled element in the persistent fixed-footer  */
+.to-top {
+    background: lime url('../Images/arrow.svg') no-repeat center;
+    background-size: 70%;
+    transform: rotate(180deg); /*  this will rotate it 180 degrees. */
+    position: absolute;
+    top: -6px;
+    right: -10px;
+    height: 35px;
+    width: 35px;
+    padding: 0 10px;
+    margin-top: 10px;
+    margin-right: 40px;
+    border-radius: 50%;
+    border: black 1px solid;
+}
+
+.social-icon-div {
+    background: white;
+    border-radius: 20px;
+    margin: 0 auto;
+    width: 95%;
+    max-width: 500px;
+}
+
+
+/***********************************************************/
+/***********************************************************/
+/********************* End Footers Styling *****************/
+/***********************************************************/
+/***********************************************************/
+
+
+
+/***********************************************************/
+/***********************************************************/
+/***********************************************************/
+/********************* Content Styling *********************/
+/***********************************************************/
+/***********************************************************/
+
+/* social media icons styling */
+.contact-icon {
+    height: 30px;
+    display: inline-block;
+    margin: 10px 5px;
+}
+
+
+
+
+/***********************************************************/
+/*  div container styling for content
+************************************************************/
+
+
+
+
+
+
+
+/***********************************************************/
+/***********************************************************/
+/********************* End Content Styling *****************/
+/***********************************************************/
+/***********************************************************/
+
+
+
+
+
+
+
+/***********************************************************/
+/***********************************************************/
+/*******************Media Queries Styling ******************/
+/***********************************************************/
+/***********************************************************/
+
+
+@media only screen and (min-width: 600px) and (orientation: landscape) {
+    /*  index.html main section images styling  */
+    .freshStopMarketPhoto {
+        height: 250px;
+    }
+}
+/* end 700px min-width and landscape orientation media query  */
+
+
+
+/* laying out the two child items in the parent .row-3 and row-2 as flex items; flex-direction: row; by default  */
+@media (min-width: 700px) {
+
+    /* flex parent container holding three flex-column items */
+    .row-3 {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+
+    /* ------ Flexbox  Layout------ */
+    /*  Two column layout styles. */
+    /* Aligning items in a row using flexbox */
+    .flex-3 {
+        padding: 15px;
+        margin-left: 5px;
+        margin-right: 5px;
+        flex: 1 48%;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    /* parent container for 2-column flex items */
+    .row-2 {
+        display: flex;
+        /* due ot the previous rule, the third column will wrap to a new line rather than share its line equally with the other two columns in the container.  */
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+
+    /* div holding each flex-column child-items for 2-column layout */
+    .flex-2 {
+        /* Aligning items to the bottom of a column using flexbox */
+        padding: 15px;
+        flex: 1;
+        margin-left: 5px;
+        margin-right: 5px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    /* 2nd column div in 2-column flex-layout  */
+    .flex-column-2-text {
+        flex: 2.5;
+    }
+
+
+    /* 2nd column div in 2-column flex-layout  */
+    .flex-column-2--mission-text {
+        flex: 1;
+    }
+
+    /* changed the order of the 'We will be back up and running' div to be placed on the far left side of the viewport */
+    #flex-4 {
+        order: -1;
+    }
+}
+/* end 700px media query */
+
+
+@media (min-width: 769px) {
+    /* img styling for the header img with the text overlay 'Welcome to Newroots' ... */
+    .backgroundHeader {
+        height: 500px;
+    }
+}
+/* end 769 media query */
+
+
+@media (min-width: 969px) {
+    /* mission statement font increase */
+    #mission {
+        font-size: 3em;
+    }
+}
+/* end 969 media query */
+
+@media (min-width: 990px) {
+
+    /* creating sticky-footer on small viewport heights and greater */
+    .wrap {
+        min-height: calc(100vh - 208px); /* (208px) (-82 main-nav-margin) -81 secondary footer  -45 main-fixed-footer */
+    }
+
+    /* main-nav font-size */
+    .nav-link {
+        font-size: .85em;
+    }
+
+    /* ---------- Fixed Positioning Example ------------ */
+    /* Using fixed position to keep the main-header and nav at the top of the viewport regardless of where they are on the page. */
+    .navbar {
+        position: fixed;
+        width: 100%; /* I set width to 100% because when position is set to fixed, the main-header will only be as wide as its content. */ /* So I override this to have a nice menu that stays with the user as they scroll down. */
+        top: 0; /* This is to ensure that the main-header container stays put at the top of the page and follows the user as they scroll. */
+        z-index: 1000;
+    }
+
+    /* this is the newroots logo on the main-nav */
+    .newrootsBrand {
+        height: 55px;
+    }
+
+    /* this is the div that holds the header img text overlay */
+    .backgroundHeader1 {
+        margin-top: 80px;
+    }
+}
+/* end 990 media query */
+
+
+@media (min-width: 1025px) {
+
+    /* at this 1025px breakpoint, I set flex-basis to 0, so that the columns will not breakdown, but instead remain on the same line.
+  For example, if I set the basis to 200px, then below 200 px of column width, the columns would wrap to a new line. */
+    .flex-3 {
+        flex-basis: 0;
+    }
+
+    /* setting the margin for the header to the height of the main nav element so that is isn't overriden upon fixed navigation @ 1025px and greater.  */
+    .backgroundHeader1 {
+        margin-top: 80px;
+    }
+}
+/* end media query for 1025px and greater  */
+
+
+@media (min-width: 1050px) {
+
+    /* creating sticky-footer on small viewport heights and greater */
+    .wrap {
+        min-height: calc(100vh - 223px); /* (208px) (-97 main-nav-margin) -81 secondary footer  -45 main-fixed-footer */
+    }
+
+
+    /* this is the newroots logo on the main-nav */
+    .newrootsBrand {
+        height: 70px;
+    }
+
+    /* setting the margin for the header to the height of the main nav element so that is isn't overriden upon fixed navigation @ 1050px and greater.  */
+    .backgroundHeader1 {
+        margin-top: 97px;
+    }
+}
+
+
+@media (min-width: 1200px) {
+
+
+    /* creating sticky-footer on small viewport heights and greater */
+    .wrap {
+        min-height: calc(100vh - 253px); /* (253px) (-127 main-nav-margin) -81 secondary footer  -45 main-fixed-footer */
+    }
+
+    /* font  size increase for main-nav links */
+    .nav-link {
+        font-size: .95em;
+    }
+    /* this is the newroots logo on the main-nav */
+    .newrootsBrand {
+        height: 100px;
+    }
+
+    /* setting the margin for the header to the height of the main nav element so that is isn't overriden upon fixed navigation @ 1200px and greater.  */
+    .backgroundHeader1 {
+        margin-top: 127px; /* 127  */
+    }
+}
+/*******************************************************************************
+********************************************************************************
+***********************  end css flexbox layouts styles  ***********************
+********************************************************************************
+*******************************************************************************/
