@@ -19,6 +19,16 @@
 
 <h2 id="welcome-create">Create Meal!</h2>
 
+
+@* 27) Notes: MVC_Forms_2: Adding a validation summary up top, and then individual suggestions
+    throughout the form as they are required.   passing in (true) causes the exclude properties errors 
+    attribute to be in effect, meaning only the summary will be given. Passing in false, will cause 
+    each individual error will be given.  We can then customize the message for the global summary.
+    there is also an overload that allows us to add classes and allow bootstrap to customize our 
+    messages for us.  *@
+
+@Html.ValidationSummary("The following errors were found:", new { @class = "alert alert-danger" });
+
 @using (Html.BeginForm())
 {
     // we added our MealType enum items to our dropdownfor menu select.  we also added an empty string as the second value, to force a selection at start. I believe we cast the SelectList to an int so Meal_Id can hold it's value to be sent to the database.
@@ -26,24 +36,26 @@
         <div class="form-group form-control-lg col-sm-12">
             @Html.LabelFor(m => m.Meal_Id, new { @class = "control-label" })
             @Html.DropDownListFor(m => m.Meal_Id, (SelectList)ViewBag.MealsSelectListItems, "", new { @class = "form-control" })
-
+            
         </div>
     </div>
+    
+
 
 
     <div class="row">
         <div class="form-group col-md-4">
-            @Html.LabelFor(m => m.MealCost, new { @class = "control-label" })
+            @Html.LabelFor(m => m.MealCost,  "Meal Cost", new { @class = "control-label" })
             @Html.TextBoxFor(m => m.MealCost, "{0:c}", new { @class = "form-control" })
         </div>
 
         <div class="form-group col-md-4">
-            @Html.LabelFor(m => m.PrepTime, new { @class = "control-label" })
+            @Html.LabelFor(m => m.PrepTime,  "Meal Id", new { @class = "control-label" })
             @Html.TextBoxFor(m => m.PrepTime, "{0:c}", new { @class = "form-control" })
         </div>
 
         <div class="form-group col-md-4">
-            @Html.LabelFor(m => m.MealAuthor, new { @class = "control-label" })
+            @Html.LabelFor(m => m.MealAuthor, "Created By:", new { @class = "control-label" })
             @Html.TextBoxFor(m => m.MealAuthor, "{0:c}", new { @class = "form-control" })
         </div>
 
@@ -63,7 +75,7 @@
         <div class="col-md-6">
             <div class="row mx-3 p-3">
                 <div class="form-check form-check-inline p-3">
-                    @Html.CheckBoxFor(m => m.TomatoCheckbox) @Html.DisplayNameFor(m => m.TomatoCheckbox)
+                    @Html.CheckBoxFor(m => m.TomatoCheckbox) Tomato
                 </div>
                 <div class="form-group p-3">
                     @Html.LabelFor(m => m.TomatoQuantity, "Quantity", new { @class = "control-label" })
@@ -89,7 +101,7 @@
             <div class="row mx-3 p-3">
 
                 <div class="form-check form-check-inline p-3">
-                    @Html.CheckBoxFor(m => m.SpinachCheckbox) @Html.DisplayNameFor(m => m.SpinachCheckbox)
+                    @Html.CheckBoxFor(m => m.SpinachCheckbox) Spinach
                 </div>
 
 

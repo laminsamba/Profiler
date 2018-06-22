@@ -113,7 +113,10 @@ namespace Matt.Models
 		public bool SpinachCheckbox { get; set; }
 		public bool TomatoCheckbox { get; set; }
 
+		[Range(typeof(double), "0", "1000")]
 		public double SpinachQuantity { get; set; }
+
+		[Range(typeof(double), "0", "1000")]
 		public double TomatoQuantity { get; set; }
 
 		// the radio buttons for ounces and grams

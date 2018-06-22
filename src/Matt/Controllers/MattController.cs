@@ -74,13 +74,23 @@ namespace Matt.Controllers
 		// meal_Id represents the mealType and or Meal Goal
 		[HttpPost]
 		public ActionResult Add(AddMealProfile addMealProfile)
-		{
+		{    
+			
+
 			// if there arent any PrepTime field validation errors, then make sure that the PrepTime
 			// is greater than zero.
 			if (ModelState.IsValidField("PrepTime") && addMealProfile.PrepTime <= 0)
 			{
 				ModelState.AddModelError("PrepTime", "The PrepTime field value must be greater than '0'.");
 			}
+
+			// name of property in quotes && name of model instance.Model_Property <= condition
+			if (ModelState.IsValidField("MealCost") && addMealProfile.MealCost <= 0)
+			{
+				ModelState.AddModelError("MealCost", "The MealCost field value must be greater than '0'.");
+			}
+
+
 
 			if (ModelState.IsValid)
 			{
