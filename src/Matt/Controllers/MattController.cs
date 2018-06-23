@@ -126,6 +126,7 @@ namespace Matt.Controllers
 
 				ViewBag.MinutesSpentPreparing = minutesSpentPreparing;
 				ViewBag.AverageTimeSpentPreparingMeals = (minutesSpentPreparing / (double)numberOfMeals);
+			
 				ViewBag.TotalFoodCost = totalFoodCost;
 				ViewBag.AverageCostPerMeal = (totalFoodCost / (double)numberOfMeals);
 				ViewBag.CostPerMinuteOfPreparation = (totalFoodCost / minutesSpentPreparing);

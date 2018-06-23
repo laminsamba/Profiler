@@ -13,15 +13,15 @@
 
 @{
 
-    ViewBag.Title = "Create Meal";  // you can set the ViewBag here without using the at symbol, since all the code is in the at symbol block
-                                    //  If you set a ViewBag in the controller, you need to use the at symbol before refeening it.
-                                    // if you bind the return value in the controller, yo ucan just reference its properties by using
-                                    // and at symbol.Property
-                                    //
-                                    // we want the backbar not to show up if we are on the Add.cshtml view.
+  ViewBag.Title = "Create Meal";  // you can set the ViewBag here without using the at symbol, since all the code is in the at symbol block
+                                  //  If you set a ViewBag in the controller, you need to use the at symbol before refeening it.
+                                  // if you bind the return value in the controller, yo ucan just reference its properties by using
+                                  // and at symbol.Property
+                                  //
+                                  // we want the backbar not to show up if we are on the Add.cshtml view.
 
-    Layout = null;
-
+ 
+  ViewBag.ShowBackBar = true;
 
 }
 
@@ -52,195 +52,198 @@
 <body>
 
 
-
-    <div class="backbar">
-        <div>
-            @Html.ActionLink("Return to Home", "Index", true, new { @class = "btn btn-default" })
-
-        </div>
-    </div>
-
     
-    <div class="container">
-        <h2>Summarized Meal Results for Your Meal Repertoire</h2>
-        <p>Health and Nutrition is a Science AND an Art!  Take the time to write down what makes you happy and healthy, and save those
-           Meals here on the 'Meal Profiler'.  You can even print out the meals and pass them to your health professional.  More to come as
-           this is a labor of love and the ideas are flowing fast and furious.  Loving your feedback.  --Matt</p>
-
-        <div class="table-responsive">
-            <table class="table table-striped table-dark table-bordered">
-
-                <!-- later i need to model reference the list of added ingredients so i can build this results table
-    dynamically -->
-                @foreach (var meal in Model)
-                {
+   
+    
 
 
-                    // i plan to add a total nutrient for the meal.   secondary concern.
-                    if (meal.SpinachCheckbox == true && meal.SpinachQuantity >= 0)
+
+
+
+    <div class="body2 bg-danger p-3">
+        <div class="container bg-warning p-3">
+            <h2>Summarized Meal Results for Your Meal Repertoire</h2>
+            <p>
+                Health and Nutrition is a Science AND an Art!  Take the time to write down what makes you happy and healthy, and save those
+                Meals here on the 'Meal Profiler'.  You can even print out the meals and pass them to your health professional.  More to come as
+                this is a labor of love and the ideas are flowing fast and furious.  Loving your feedback.  --Matt
+            </p>
+
+            <div class="table-responsive">
+                <table class="table table-striped table-dark table-bordered">
+
+                    <!-- later i need to model reference the list of added ingredients so i can build this results table
+                    dynamically -->
+                    @foreach (var meal in Model)
                     {
 
-                        <thead>
-                            <tr class="bg-success">
-                                <th>Meal Goal</th>
-                                <th>Meal Cost (U.S. Dollars)</th>
-                                <th>Preparation Time (minutes)</th>
-                                <th>Author</th>
-                                <th>Meal Id</th>
-                            </tr>
-                        </thead>
 
-
-
-                        <tbody class="">
-                            <tr class="bg-info">
-                                <td>
-                                    @* when i navigate to /Add/id# I will get specific results  *@
-                                    <span class="hidden-xs">
-                                        <!-- Meal.Name will return the name of the Meal Goal. -->
-                                        @meal.Meal.Name
-                                    </span>
-                                </td>
-                                <td>@meal.MealCost</td>
-                                <td>@meal.PrepTime</td>
-                                <td>@meal.MealAuthor</td>
-                                <th>@meal.Id</th>
-                            </tr>
-                        </tbody>
-
-                        <thead>
-                            <tr class="bg-danger">
-                                <th class="bg-danger">Ingredient</th>
-                            </tr>
-                        </thead>
-                        <thead>
-                            <tr>
-                                <td class="bg-secondary">
-                                    Spinach
-                                </td>
-                            </tr>
-                        </thead>
-                        <thead class="">
-                            <tr class="bg-primary">
-                                <th>Nutrition Value</th>
-                                <th>Base Nutrient USDA % Value</th>
-                                <th>Quantity</th>
-                                <th>Modified USDA % Value</th>
-                            </tr>
-                        </thead>
-                        // inner foreach to print out all of the ingredient nutrition modified
-                        // by the formula (Base * Quantity * Units) where grams will have a fictitious unit multiplier.
-
-
-                        double qty = (double)meal.SpinachQuantity;
-
-                        foreach (KeyValuePair<string, int>
-                                    pair in Ingredient.SpinachDictionary)
+                        // i plan to add a total nutrient for the meal.   secondary concern.
+                        if (meal.SpinachCheckbox == true && meal.SpinachQuantity >= 0)
                         {
-                            string nutritionType = pair.Key;
-                            int baseNutritionIntValue = pair.Value;
-                            double quantity = qty;
-                            double modifiedResult = qty * baseNutritionIntValue;
 
-                            <tbody>
-                                <tr>
+                            <thead>
+                                <tr class="bg-success">
+                                    <th>Meal Goal</th>
+                                    <th>Meal Cost (U.S. Dollars)</th>
+                                    <th>Preparation Time (minutes)</th>
+                                    <th>Author</th>
+                                    <th>Meal Id</th>
+                                </tr>
+                            </thead>
+
+
+
+                            <tbody class="">
+                                <tr class="bg-info">
                                     <td>
-
-                                        @nutritionType
+                                        @* when i navigate to /Add/id# I will get specific results  *@
+                                        <span class="hidden-xs">
+                                            <!-- Meal.Name will return the name of the Meal Goal. -->
+                                            @meal.Meal.Name
+                                        </span>
                                     </td>
-                                    <td>@baseNutritionIntValue</td>
-                                    <td>@quantity</td>
-                                    <td>@modifiedResult</td>
+                                    <td>@meal.MealCost</td>
+                                    <td>@meal.PrepTime</td>
+                                    <td>@meal.MealAuthor</td>
+                                    <th>@meal.Id</th>
                                 </tr>
                             </tbody>
-                        }
-                    }
 
-
-                    // if Tomato requirements are met, this prints.
-                    if (meal.TomatoCheckbox == true && meal.TomatoQuantity >= 0)
-                    {
-                        <thead>
-                            <tr class="bg-success">
-                                <th>Meal Goal</th>
-                                <th>Meal Cost (U.S. Dollars)</th>
-                                <th>Preparation Time (minutes)</th>
-                                <th>Author</th>
-                                <th>Meal Id</th>
-                            </tr>
-                        </thead>
-
-
-
-                        <tbody class="">
-                            <tr class="bg-info">
-                                <td>
-                                    @* when i navigate to /Add/id# I will get specific results  *@
-                                    <span class="hidden-xs">
-                                        <!-- Meal.Name will return the name of the Meal Goal. -->
-                                        @meal.Meal.Name
-                                    </span>
-                                </td>
-                                <td>@meal.MealCost</td>
-                                <td>@meal.PrepTime</td>
-                                <td>@meal.MealAuthor</td>
-                                <th>@meal.Id</th>
-                            </tr>
-                        </tbody>
-
-
-
-
-                        <thead>
-                            <tr class="bg-danger">
-                                <th class="bg-danger">Ingredient</th>
-                            </tr>
-                        </thead>
-                        <thead>
-                            <tr>
-                                <td class="bg-secondary">
-                                    Tomato
-                                </td>
-                            </tr>
-                        </thead>
-                        <thead>
-                            <tr class="bg-primary">
-                                <th>Nutrition Value</th>
-                                <th>Base Nutrient USDA % Value</th>
-                                <th>Quantity</th>
-                                <th>Modified USDA % Value</th>
-                            </tr>
-                        </thead>
-
-                        double qty2 = (double)meal.TomatoQuantity;
-                        foreach (KeyValuePair<string, int> pair in Ingredient.TomatoDictionary)
-                        {
-                            string nutritionType = pair.Key;
-                            int baseNutritionIntValue = pair.Value;
-                            double quantity = qty2;
-                            double modifiedResult = qty2 * baseNutritionIntValue;
-
-
-                          
-
-                            <tbody>
+                            <thead>
+                                <tr class="bg-danger">
+                                    <th class="bg-danger">Ingredient</th>
+                                </tr>
+                            </thead>
+                            <thead>
                                 <tr>
-                                    <td>
-
-                                        @nutritionType
+                                    <td class="bg-secondary">
+                                        Spinach
                                     </td>
-                                    <td>@baseNutritionIntValue</td>
-                                    <td>@quantity</td>
-                                    <td>@modifiedResult</td>
+                                </tr>
+                            </thead>
+                            <thead class="">
+                                <tr class="bg-primary">
+                                    <th>Nutrition Value</th>
+                                    <th>Base Nutrient USDA % Value</th>
+                                    <th>Quantity</th>
+                                    <th>Modified USDA % Value</th>
+                                </tr>
+                            </thead>
+                            // inner foreach to print out all of the ingredient nutrition modified
+                            // by the formula (Base * Quantity * Units) where grams will have a fictitious unit multiplier.
+
+
+                            double qty = (double)meal.SpinachQuantity;
+
+                            foreach (KeyValuePair<string, int>
+                                        pair in Ingredient.SpinachDictionary)
+                            {
+                                string nutritionType = pair.Key;
+                                int baseNutritionIntValue = pair.Value;
+                                double quantity = qty;
+                                double modifiedResult = qty * baseNutritionIntValue;
+
+                                <tbody>
+                                    <tr>
+                                        <td>
+
+                                            @nutritionType
+                                        </td>
+                                        <td>@baseNutritionIntValue</td>
+                                        <td>@quantity</td>
+                                        <td>@modifiedResult</td>
+                                    </tr>
+                                </tbody>
+                            }
+                        }
+
+
+                        // if Tomato requirements are met, this prints.
+                        if (meal.TomatoCheckbox == true && meal.TomatoQuantity >= 0)
+                        {
+                            <thead>
+                                <tr class="bg-success">
+                                    <th>Meal Goal</th>
+                                    <th>Meal Cost (U.S. Dollars)</th>
+                                    <th>Preparation Time (minutes)</th>
+                                    <th>Author</th>
+                                    <th>Meal Id</th>
+                                </tr>
+                            </thead>
+
+
+
+                            <tbody class="">
+                                <tr class="bg-info">
+                                    <td>
+                                        @* when i navigate to /Add/id# I will get specific results  *@
+                                        <span class="hidden-xs">
+                                            <!-- Meal.Name will return the name of the Meal Goal. -->
+                                            @meal.Meal.Name
+                                        </span>
+                                    </td>
+                                    <td>@meal.MealCost</td>
+                                    <td>@meal.PrepTime</td>
+                                    <td>@meal.MealAuthor</td>
+                                    <th>@meal.Id</th>
                                 </tr>
                             </tbody>
+
+
+
+
+                            <thead>
+                                <tr class="bg-danger">
+                                    <th class="bg-danger">Ingredient</th>
+                                </tr>
+                            </thead>
+                            <thead>
+                                <tr>
+                                    <td class="bg-secondary">
+                                        Tomato
+                                    </td>
+                                </tr>
+                            </thead>
+                            <thead>
+                                <tr class="bg-primary">
+                                    <th>Nutrition Value</th>
+                                    <th>Base Nutrient USDA % Value</th>
+                                    <th>Quantity</th>
+                                    <th>Modified USDA % Value</th>
+                                </tr>
+                            </thead>
+
+                            double qty2 = (double)meal.TomatoQuantity;
+                            foreach (KeyValuePair<string, int> pair in Ingredient.TomatoDictionary)
+                            {
+                                string nutritionType = pair.Key;
+                                int baseNutritionIntValue = pair.Value;
+                                double quantity = qty2;
+                                double modifiedResult = qty2 * baseNutritionIntValue;
+
+
+
+
+                                <tbody>
+                                    <tr>
+                                        <td>
+
+                                            @nutritionType
+                                        </td>
+                                        <td>@baseNutritionIntValue</td>
+                                        <td>@quantity</td>
+                                        <td>@modifiedResult</td>
+                                    </tr>
+                                </tbody>
+                            }
+
                         }
 
                     }
+                </table>
 
-                }
-            </table>
-
+            </div>
         </div>
     </div>
 

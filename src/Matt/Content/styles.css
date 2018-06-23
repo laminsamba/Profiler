@@ -68,7 +68,8 @@ body {
     color: lime;
     background: linear-gradient(0deg, black, transparent 80%), linear-gradient(180deg, black, transparent 80%), darkgrey;
     width: 100%;
-    height: 40px;
+    height: 60px;
+    margin-bottom: 30px;
 }
 
 
@@ -87,7 +88,7 @@ body {
     max-height: 450px;
     overflow-y: auto;
     width: 300px;
-    text-align: center;
+    text-align: left;
     padding: 20px;
     background: linear-gradient(0deg, black, transparent 80%), linear-gradient(180deg, black, transparent 80%), darkgrey;
 }
@@ -95,6 +96,7 @@ body {
     /* color of the links in the dropdown menus */
     .dropdown-menu a {
         color: lightgreen;
+        text-align: left;
     }
 
         .dropdown-menu a:hover {
@@ -103,14 +105,8 @@ body {
         }
 
 /* main-nav link styling */
-.nav-link {
-    margin-left: 10px;
-}
 
-    /* main-nav link styling */
-    .nav-link:hover {
-        color: black;
-    }
+
 
 
 /***********************************************************/
@@ -135,9 +131,14 @@ body {
 
 /*  header image styling */
 .backgroundHeader {
-    height: 300px;
+    height: 200px;
     width: 100%;
+    max-width: 1400px;
     margin: 0 auto;
+}
+
+.nav-item {
+    font-size: 2em;
 }
 
 
@@ -170,6 +171,8 @@ body {
     font-size: 16px;
     color: lime;
 }
+
+
 
 
 #top-form {
@@ -394,8 +397,6 @@ li {
 
 
 
-
-
 /***********************************************************/
 /***********************************************************/
 /********************* End Content Styling *****************/
@@ -417,9 +418,7 @@ li {
 
 @media only screen and (min-width: 600px) and (orientation: landscape) {
     /*  index.html main section images styling  */
-    .freshStopMarketPhoto {
-        height: 250px;
-    }
+   
 }
 /* end 700px min-width and landscape orientation media query  */
 
@@ -488,7 +487,8 @@ li {
 @media (min-width: 769px) {
     /* img styling for the header img with the text overlay 'Welcome to Newroots' ... */
     .backgroundHeader {
-        height: 500px;
+        height: 350px;
+        
     }
 }
 /* end 769 media query */
@@ -528,10 +528,10 @@ li {
         height: 55px;
     }
 
-    /* this is the div that holds the header img text overlay */
     .backgroundHeader1 {
-        margin-top: 80px;
+        margin-top: 83px;
     }
+   
 }
 /* end 990 media query */
 
@@ -544,10 +544,7 @@ li {
         flex-basis: 0;
     }
 
-    /* setting the margin for the header to the height of the main nav element so that is isn't overriden upon fixed navigation @ 1025px and greater.  */
-    .backgroundHeader1 {
-        margin-top: 80px;
-    }
+   
 }
 /* end media query for 1025px and greater  */
 
@@ -565,10 +562,7 @@ li {
         height: 70px;
     }
 
-    /* setting the margin for the header to the height of the main nav element so that is isn't overriden upon fixed navigation @ 1050px and greater.  */
-    .backgroundHeader1 {
-        margin-top: 97px;
-    }
+   
 }
 
 
@@ -589,10 +583,7 @@ li {
         height: 100px;
     }
 
-    /* setting the margin for the header to the height of the main nav element so that is isn't overriden upon fixed navigation @ 1200px and greater.  */
-    .backgroundHeader1 {
-        margin-top: 127px; /* 127  */
-    }
+    
 }
 /*******************************************************************************
 ********************************************************************************

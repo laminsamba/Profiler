@@ -32,39 +32,38 @@
 
 
 
-<div class="stats mx-3 p-3 bg-success">
-    <h2 class="stats-header h3">Meal Expense Running Totals</h2>
 
-    <div class="stats-left mx-3 p-3">
-        <span class="stats-number mx-3 p-3">@ViewBag.MinutesSpentPreparing :</span>Minutes Preparing
-    </div>
-    <div class="stats-right mx-3 p-3">
-        <span class="stats-number mx-3 p-3">@ViewBag.AverageTimeSpentPreparingMeals : </span>Avg Minutes per Meal
-    </div>
-    <div class="stats-left mx-3 p-3">
-        <span class="stats-number mx-3 p-3">@ViewBag.TotalFoodCost : </span>Total Cost (USD)
-    </div>
-    <div class="stats-right  mx-3 p-3">
-        <span class="stats-number  mx-3 p-3">@ViewBag.AverageCostPerMeal : </span>Avg Cost Per Meal
-    </div>
-    <div class="stats-left  mx-3 p-3">
-        <span class="stats-number  mx-3 p-3">@ViewBag.MinutesPreparingPerDollarSpent : </span> Minutes/Dollar 
-    </div>
-    <div class="stats-right mx-3 p-3">
-        <span class="stats-number mx-3 p-3">@ViewBag.CostPerMinuteOfPreparation</span> : Dollars/Minute
-    </div>
-</div>
+<h3>Meal Expense Running Totals</h3>
 
-<h3>@ViewBag.Title</h3>
+<table class="table">
+    <tr>
+        <th>Total Minutes Preparing Meals</th>
+        <th>Avg Minutes Per Meal</th>
+        <th>Total Cost</th>
+        <th class="">Avg Cost Per Meal</th>
+    </tr>
+    @* we are working with single AddMealProfile objects at a time here in the Model of List<AddMealProfile> objects. *@
+  
+        <tr>
+            <!-- Meal.Name will return the name of the Meal Goal. -->
+            <td>@ViewBag.MinutesSpentPreparing</td>
+            <td>@ViewBag.AverageTimeSpentPreparingMeals</td>
+            <td>@ViewBag.TotalFoodCost</td>
+            <td class="">@ViewBag.AverageCostPerMeal</td>
+        </tr>
+    
+</table>
+
+<h3>@ViewBag.Title Single Meal Results</h3>
 
 <table class="table">
     <tr>
         <th>Meal Goal</th>
         <th>Meal Cost</th>
         <th>Meal Prep Time</th>
-        @* i couldn't get the hidden class to work...ill leave the comment in as an idea to research later. *@
         <th class="">Meal Author</th>
         <th class="">Meal Id</th>
+        <th class="">Actions</th>
         <th>&nbsp;</th>
     </tr>
     @* we are working with single AddMealProfile objects at a time here in the Model of List<AddMealProfile> objects. *@
