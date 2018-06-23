@@ -37,13 +37,21 @@ body {
     line-height: 1.6;
     background: linear-gradient(0deg, black, transparent 80%), linear-gradient(180deg, black, transparent 80%), red;
     color: yellow;
-    font-size: 12px;
-
+    font-size: 10px;
 }
+
+
+.container {
+    
+    margin-left: 15px;
+    padding: 5px;
+}
+
 
 /* creating sticky-footer on small viewport heights and greater */
 .wrap {
     min-height: calc(100vh - 126px); /*   -81 secondary footer  -45 main-fixed-footer */
+
 }
 
 
@@ -208,8 +216,9 @@ body {
 /* edit button on home(index) list page*/
 .btn-warning {
     width: 58px;
-    
+    margin-bottom: 15px;
 }
+
 
 .add-view-cancel-btn {
     width: 100px;
@@ -420,202 +429,201 @@ li {
 /***********************************************************/
 /***********************************************************/
 
+@media (min-width: 503px) {
 
-@media only screen and (min-width: 600px) and (orientation: landscape) {
-    /*  index.html main section images styling  */
-
-
-
-   
-
-}
-/* end 700px min-width and landscape orientation media query  */
-
-
-
-/* laying out the two child items in the parent .row-3 and row-2 as flex items; flex-direction: row; by default  */
-@media (min-width: 700px) {
-
-
-    /* edit button on home(index) list page*/
-    .btn-warning {
-        width: 58px;
-        margin-bottom: 5px;
-    }
-
-    /* flex parent container holding three flex-column items */
-    .row-3 {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-    }
-
-    /* ------ Flexbox  Layout------ */
-    /*  Two column layout styles. */
-    /* Aligning items in a row using flexbox */
-    .flex-3 {
-        padding: 15px;
-        margin-left: 5px;
-        margin-right: 5px;
-        flex: 1 48%;
-        margin-bottom: 10px;
-        text-align: center;
-    }
-
-    /* parent container for 2-column flex items */
-    .row-2 {
-        display: flex;
-        /* due ot the previous rule, the third column will wrap to a new line rather than share its line equally with the other two columns in the container.  */
-        flex-wrap: wrap;
-        flex-direction: row;
-    }
-
-    /* div holding each flex-column child-items for 2-column layout */
-    .flex-2 {
-        /* Aligning items to the bottom of a column using flexbox */
-        padding: 15px;
-        flex: 1;
-        margin-left: 5px;
-        margin-right: 5px;
-        margin-bottom: 10px;
-        text-align: center;
-    }
-
-    /* 2nd column div in 2-column flex-layout  */
-    .flex-column-2-text {
-        flex: 2.5;
-    }
-
-
-    /* 2nd column div in 2-column flex-layout  */
-    .flex-column-2--mission-text {
-        flex: 1;
-    }
-
-    /* changed the order of the 'We will be back up and running' div to be placed on the far left side of the viewport */
-    #flex-4 {
-        order: -1;
-    }
-}
-/* end 700px media query */
-
-
-@media (min-width: 769px) {
-    /* img styling for the header img with the text overlay 'Welcome to Newroots' ... */
-    .backgroundHeader {
-        height: 350px;
-        
-    }
 
     /* edit button on home(index) list page*/
     .btn-warning {
         width: 58px;
         margin-bottom: 0px;
     }
+
 }
-/* end 769 media query */
 
 
-@media (min-width: 969px) {
-    /* mission statement font increase */
-    #mission {
-        font-size: 3em;
+    @media only screen and (min-width: 600px) and (orientation: landscape) {
+        /*  index.html main section images styling  */
+
+
+
+
+
     }
+    /* end 700px min-width and landscape orientation media query  */
 
-  
-   
-}
-/* end 969 media query */
 
-@media (min-width: 990px) {
 
-    /* creating sticky-footer on small viewport heights and greater */
-    .wrap {
-        min-height: calc(100vh - 208px); /* (208px) (-82 main-nav-margin) -81 secondary footer  -45 main-fixed-footer */
+    /* laying out the two child items in the parent .row-3 and row-2 as flex items; flex-direction: row; by default  */
+    @media (min-width: 700px) {
+
+
+        /* edit button on home(index) list page*/
+        .btn-warning {
+            width: 58px;
+            margin-bottom: 0px;
+        }
+
+        /* flex parent container holding three flex-column items */
+        .row-3 {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+        }
+
+        /* ------ Flexbox  Layout------ */
+        /*  Two column layout styles. */
+        /* Aligning items in a row using flexbox */
+        .flex-3 {
+            padding: 15px;
+            margin-left: 5px;
+            margin-right: 5px;
+            flex: 1 48%;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        /* parent container for 2-column flex items */
+        .row-2 {
+            display: flex;
+            /* due ot the previous rule, the third column will wrap to a new line rather than share its line equally with the other two columns in the container.  */
+            flex-wrap: wrap;
+            flex-direction: row;
+        }
+
+        /* div holding each flex-column child-items for 2-column layout */
+        .flex-2 {
+            /* Aligning items to the bottom of a column using flexbox */
+            padding: 15px;
+            flex: 1;
+            margin-left: 5px;
+            margin-right: 5px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        /* 2nd column div in 2-column flex-layout  */
+        .flex-column-2-text {
+            flex: 2.5;
+        }
+
+
+        /* 2nd column div in 2-column flex-layout  */
+        .flex-column-2--mission-text {
+            flex: 1;
+        }
+
+        /* changed the order of the 'We will be back up and running' div to be placed on the far left side of the viewport */
+        #flex-4 {
+            order: -1;
+        }
     }
+    /* end 700px media query */
 
-    /* main-nav font-size */
-    .nav-link {
-        font-size: .85em;
+
+    @media (min-width: 769px) {
+        /* img styling for the header img with the text overlay 'Welcome to Newroots' ... */
+        .backgroundHeader {
+            height: 350px;
+        }
+
+        /* edit button on home(index) list page*/
+        .btn-warning {
+            width: 58px;
+            margin-bottom: 0px;
+        }
     }
+    /* end 769 media query */
 
-    /* ---------- Fixed Positioning Example ------------ */
-    /* Using fixed position to keep the main-header and nav at the top of the viewport regardless of where they are on the page. */
-    .navbar {
-        position: fixed;
-        width: 100%; /* I set width to 100% because when position is set to fixed, the main-header will only be as wide as its content. */ /* So I override this to have a nice menu that stays with the user as they scroll down. */
-        top: 0; /* This is to ensure that the main-header container stays put at the top of the page and follows the user as they scroll. */
-        z-index: 1000;
+
+    @media (min-width: 969px) {
+        /* mission statement font increase */
+        #mission {
+            font-size: 3em;
+        }
     }
+    /* end 969 media query */
 
-    /* this is the newroots logo on the main-nav */
-    .newrootsBrand {
-        height: 55px;
+    @media (min-width: 990px) {
+
+        /* creating sticky-footer on small viewport heights and greater */
+        .wrap {
+            min-height: calc(100vh - 208px); /* (208px) (-82 main-nav-margin) -81 secondary footer  -45 main-fixed-footer */
+        }
+
+        /* main-nav font-size */
+        .nav-link {
+            font-size: .85em;
+        }
+
+        /* ---------- Fixed Positioning Example ------------ */
+        /* Using fixed position to keep the main-header and nav at the top of the viewport regardless of where they are on the page. */
+        .navbar {
+            position: fixed;
+            width: 100%; /* I set width to 100% because when position is set to fixed, the main-header will only be as wide as its content. */ /* So I override this to have a nice menu that stays with the user as they scroll down. */
+            top: 0; /* This is to ensure that the main-header container stays put at the top of the page and follows the user as they scroll. */
+            z-index: 1000;
+        }
+
+        /* this is the newroots logo on the main-nav */
+        .newrootsBrand {
+            height: 55px;
+        }
+
+        .backgroundHeader1 {
+            margin-top: 83px;
+        }
     }
-
-    .backgroundHeader1 {
-        margin-top: 83px;
-    }
-
-  
-  
-}
-/* end 990 media query */
+    /* end 990 media query */
 
 
-@media (min-width: 1025px) {
+    @media (min-width: 1025px) {
 
-    /* at this 1025px breakpoint, I set flex-basis to 0, so that the columns will not breakdown, but instead remain on the same line.
+        /* at this 1025px breakpoint, I set flex-basis to 0, so that the columns will not breakdown, but instead remain on the same line.
   For example, if I set the basis to 200px, then below 200 px of column width, the columns would wrap to a new line. */
-    .flex-3 {
-        flex-basis: 0;
+        .flex-3 {
+            flex-basis: 0;
+        }
+    }
+    /* end media query for 1025px and greater  */
+
+
+    @media (min-width: 1050px) {
+
+        /* creating sticky-footer on small viewport heights and greater */
+        .wrap {
+            min-height: calc(100vh - 223px); /* (208px) (-97 main-nav-margin) -81 secondary footer  -45 main-fixed-footer */
+        }
+
+
+        /* this is the newroots logo on the main-nav */
+        .newrootsBrand {
+            height: 70px;
+        }
+
+        .backgroundHeader1 {
+            margin-top: 103px;
+        }
     }
 
-   
-}
-/* end media query for 1025px and greater  */
+
+    @media (min-width: 1200px) {
 
 
-@media (min-width: 1050px) {
+        /* creating sticky-footer on small viewport heights and greater */
+        .wrap {
+            min-height: calc(100vh - 253px); /* (253px) (-127 main-nav-margin) -81 secondary footer  -45 main-fixed-footer */
+        }
 
-    /* creating sticky-footer on small viewport heights and greater */
-    .wrap {
-        min-height: calc(100vh - 223px); /* (208px) (-97 main-nav-margin) -81 secondary footer  -45 main-fixed-footer */
+        /* font  size increase for main-nav links */
+        .nav-link {
+            font-size: .95em;
+        }
+        /* this is the newroots logo on the main-nav */
+        .newrootsBrand {
+            height: 100px;
+        }
     }
-
-
-    /* this is the newroots logo on the main-nav */
-    .newrootsBrand {
-        height: 70px;
-    }
-
-    .backgroundHeader1 {
-        margin-top: 103px;
-    }
-   
-}
-
-
-@media (min-width: 1200px) {
-
-
-    /* creating sticky-footer on small viewport heights and greater */
-    .wrap {
-        min-height: calc(100vh - 253px); /* (253px) (-127 main-nav-margin) -81 secondary footer  -45 main-fixed-footer */
-    }
-
-    /* font  size increase for main-nav links */
-    .nav-link {
-        font-size: .95em;
-    }
-    /* this is the newroots logo on the main-nav */
-    .newrootsBrand {
-        height: 100px;
-    }
-
-    
-}
-/*******************************************************************************
+    /*******************************************************************************
 ********************************************************************************
 ***********************  end css flexbox layouts styles  ***********************
 ********************************************************************************
