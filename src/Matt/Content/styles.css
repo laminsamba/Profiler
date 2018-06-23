@@ -35,7 +35,9 @@
 body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     line-height: 1.6;
-    background: yellow;
+    background: linear-gradient(0deg, black, transparent 80%), linear-gradient(180deg, black, transparent 80%), red;
+    color: yellow;
+    
 }
 
 /* creating sticky-footer on small viewport heights and greater */
@@ -152,8 +154,21 @@ body {
 /***********************************************************/
 /***********************************************************/
 
-#welcome-create {
+/* create meal on add page view*/
+#welcome-create, h2, h3 {
     margin-top: 50px;
+    text-shadow: rgba(255,255,255,0.5) 0px 3px 3px;
+}
+
+
+.validation-summary-valid {
+    display: none;
+}
+
+.validation-summary-errors {
+    background: linear-gradient(0deg, black, transparent 80%), linear-gradient(180deg, black, transparent 80%), red;
+    font-size: 16px;
+    color: lime;
 }
 
 
@@ -184,10 +199,15 @@ body {
 }
 
 
+/* edit button on home(index) list page*/
+.btn-warning {
+    width: 58px;
+}
 
-
-
-
+.add-view-cancel-btn {
+    width: 100px;
+    background: tomato;
+}
 
 
 

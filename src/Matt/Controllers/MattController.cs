@@ -33,10 +33,10 @@ namespace Matt.Controllers
 			List<AddMealProfile> addMealProfiles = _addMealProfilesRepository.GetAddMealProfiles();
 
 			// Calculate the total meal.
-			double minutesSpentPreparing = addMealProfiles.Sum(e => e.PrepTime);
+			int minutesSpentPreparing = addMealProfiles.Sum(e => e.PrepTime);
 
 			// Calculate the total meal.
-			double totalFoodCost = addMealProfiles.Sum(e => e.PrepTime);
+			double totalFoodCost = addMealProfiles.Sum(e => e.MealCost);
 
 			// Determine the number of meals that have addMealProfiles.
 			int numberOfMeals = addMealProfiles.Count;
@@ -74,20 +74,34 @@ namespace Matt.Controllers
 		// meal_Id represents the mealType and or Meal Goal
 		[HttpPost]
 		public ActionResult Add(AddMealProfile addMealProfile)
-		{    
-			
+		{
 
-			// if there arent any PrepTime field validation errors, then make sure that the PrepTime
-			// is greater than zero.
+
 			if (ModelState.IsValidField("PrepTime") && addMealProfile.PrepTime <= 0)
 			{
-				ModelState.AddModelError("PrepTime", "The PrepTime field value must be greater than '0'.");
+				ModelState.AddModelError("PrepTime", "The Prep Time field value must be greater than '0'.");
 			}
 
-			// name of property in quotes && name of model instance.Model_Property <= condition
 			if (ModelState.IsValidField("MealCost") && addMealProfile.MealCost <= 0)
 			{
-				ModelState.AddModelError("MealCost", "The MealCost field value must be greater than '0'.");
+				ModelState.AddModelError("MealCost", "The Meal Cost field value must be greater than '0'.");
+			}
+
+			if (ModelState.IsValidField("MealAuthor") && addMealProfile.MealAuthor == "" || addMealProfile.MealAuthor == null)
+			{
+				addMealProfile.MealAuthor = "Dr. Who";
+			}
+
+
+			// if the checkbox is not checked, then return null for respective quantities.
+			if (ModelState.IsValidField("TomatoQuantity") && addMealProfile.TomatoCheckbox == false)
+			{
+					addMealProfile.TomatoQuantity = null;
+			}
+
+			if (ModelState.IsValidField("SpinachQuantity") && addMealProfile.SpinachCheckbox == false)
+			{
+				addMealProfile.SpinachQuantity = null;
 			}
 
 
@@ -103,10 +117,11 @@ namespace Matt.Controllers
 				double minutesSpentPreparing = addMealProfiles.Sum(e => e.PrepTime);
 
 				// Calculate the total meal.
-				double totalFoodCost = addMealProfiles.Sum(e => e.PrepTime);
+				double totalFoodCost = addMealProfiles.Sum(e => e.MealCost);
 
 				// Determine the number of meals that have addMealProfiles.
 				int numberOfMeals = addMealProfiles.Count;
+
 
 				// going forward, I'm going to do the model binding solution, and perform in page calculations
 				// or i'll create methods and call them from the page.  This will clean up my controller area
@@ -131,6 +146,12 @@ namespace Matt.Controllers
 			return View(addMealProfile);  // in this case, addMealProfile object is passed in to view
 		}
 
+
+
+
+
+
+
 		// id is the path id in the address bar
 		public ActionResult Results(int? id)
 		{
@@ -144,9 +165,9 @@ namespace Matt.Controllers
 
 			// when i look in data.cs, i see that the List collection includes data for individual meal profiles.
 			// so I want to return one meal profile.
-			AddMealProfile specificMealProfile = _addMealProfilesRepository.GetAddMealProfile(id.Value);
+			List<AddMealProfile> addMealProfiles = _addMealProfilesRepository.GetAddMealProfiles();
 
-			return View(specificMealProfile);
+			return View(addMealProfiles);
 		}
 
 

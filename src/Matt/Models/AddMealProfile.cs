@@ -48,17 +48,19 @@ namespace Matt.Models
 		/// <param name="prepTime">The duration for the AddMealProfile (in minutes).</param>
 		/// <param name="mealCost">The duration for the AddMealProfile (in minutes).</param>
 		/// <param name="mealAuthor"></param>
-		/// <param name="spinachCheckbox">The ID for the spinachCheckBox.</param>
-		/// <param name="tomatoCheckbox"></param>
 		/// <param name="spinachQuantity">The ID for the textbox, whose value will be assigned to spinachQuantity if checked first. on form submit</param>
 		/// <param name="tomatoQuantity"></param>
 		/// <param name="measurementTomato"></param>
 		/// /// <param name="measurementSpinach"></param>
-
+		/// <param name="spinachCheckbox">The ID for the spinachCheckBox.</param>
+		/// <param name="tomatoCheckbox"></param>
 		/// <param name="notes">The notes for the AddMealProfile.</param>
 		public AddMealProfile(int id, Meal.MealType mealType,
-				double prepTime, double mealCost, string mealAuthor, bool spinachCheckbox, bool tomatoCheckbox, double spinachQuantity,
-				double tomatoQuantity, MeasurementUnit measurementTomato = MeasurementUnit.Ounces, MeasurementUnit measurementSpinach = MeasurementUnit.Ounces, string notes = null)
+				int prepTime, double mealCost, string mealAuthor, double spinachQuantity,
+				double tomatoQuantity, 
+				MeasurementUnit measurementTomato = MeasurementUnit.Ounces, 
+				MeasurementUnit measurementSpinach = MeasurementUnit.Ounces,
+				bool spinachCheckbox = false, bool tomatoCheckbox = false, string notes = null)
 
 		{
 			Id = id;
@@ -67,12 +69,12 @@ namespace Matt.Models
 			PrepTime = prepTime;
 			MealCost = mealCost;
 			MealAuthor = mealAuthor;
-			SpinachCheckbox = spinachCheckbox;
-			TomatoCheckbox = tomatoCheckbox;
 			SpinachQuantity = spinachQuantity;
 			TomatoQuantity = tomatoQuantity;
 			MeasurementTomato = measurementTomato;
 			MeasurementSpinach = measurementSpinach;
+			SpinachCheckbox = spinachCheckbox;
+			TomatoCheckbox = tomatoCheckbox;
 			Notes = notes;
 		}
 
@@ -103,21 +105,23 @@ namespace Matt.Models
 		/// <summary>
 		/// The prepTime for the AddMealProfile (in minutes).
 		/// </summary>
-		public double PrepTime { get; set; }
+		[Range(typeof(int), "1", "100000")]
+		public int PrepTime { get; set; }
 
-
+		[Range(typeof(double), ".01", "1000000000")] // billionaires have to eat too!
 		public double MealCost { get; set; }
 
+		
 		public string MealAuthor { get; set; }
 
 		public bool SpinachCheckbox { get; set; }
 		public bool TomatoCheckbox { get; set; }
 
-		[Range(typeof(double), "0", "1000")]
-		public double SpinachQuantity { get; set; }
+		
+		public double? SpinachQuantity { get; set; }
 
-		[Range(typeof(double), "0", "1000")]
-		public double TomatoQuantity { get; set; }
+		
+		public double? TomatoQuantity { get; set; }
 
 		// the radio buttons for ounces and grams
 		public MeasurementUnit MeasurementTomato { get; set; }
@@ -135,7 +139,7 @@ namespace Matt.Models
 
 
 
-
+		
 
 
 	}

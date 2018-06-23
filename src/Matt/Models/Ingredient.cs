@@ -11,7 +11,7 @@ namespace Matt.Models
 		// creating specific ingredient dictionaries.  will reference them by foreach loop for string values passed in for nutrients.  
 		// example   reference dictionary at key == "Base Vitamin A"  etc...
 
-		public static Dictionary<string, int> IngredientDictionary = new Dictionary<string, int>
+		public static Dictionary<string, int> SpinachDictionary = new Dictionary<string, int>
 		{
 			{ "Spinach: Base Vitamin A", 31  },
 			{ "Spinach: Base Vitamin B", 37  },
@@ -22,6 +22,11 @@ namespace Matt.Models
 			{ "Spinach: Carbohydrates", 13  },
 			{ "Spinach: Sugar", 45 },
 			{ "Spinach: Sodium", 2  },
+		};
+
+
+		public static Dictionary<string, int> TomatoDictionary = new Dictionary<string, int>
+		{
 			{ "Tomato: Base Vitamin A", 31  },
 			{ "Tomato: Base Vitamin B", 37  },
 			{ "Tomato: Base Vitamin C", 23  },
@@ -30,16 +35,15 @@ namespace Matt.Models
 			{ "Tomato: Protein", 9  },
 			{ "Tomato: Carbohydrates", 13  },
 			{ "Tomato: Sugar", 45 },
-			{ "Tomato: Sodium", 2  }
+			{ "Tomato: Sodium", 2  },
 		};
 
-		// create method to return a value when a string key is passed in. need to convert the results to an int.
-		public static int BaseToInt(string input)
-		{
-			int value = IngredientDictionary[input];
-			return value;
-		}
+	
 
+
+
+
+		
 
 
 	}

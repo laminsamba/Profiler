@@ -47,12 +47,12 @@ namespace Matt.Data
 			var addMealProfiles = new List<AddMealProfile>()
 			{
 
-				new AddMealProfile(1, Meal.MealType.HeartHealthy, 3.1, 5.2, "Matt", true, true, 43, 11, AddMealProfile.MeasurementUnit.Ounces, AddMealProfile.MeasurementUnit.Ounces, "Olive Oil"),
-				new AddMealProfile(2, Meal.MealType.FatLoss, 3.4, 2.8, "Matt", true, true, 43, 11, AddMealProfile.MeasurementUnit.Ounces, AddMealProfile.MeasurementUnit.Ounces, "Kale"),
-				new AddMealProfile(3, Meal.MealType.MuscleGrowth, 5.4, 8.1, "Kate", true, true, 43, 11,  AddMealProfile.MeasurementUnit.Ounces, AddMealProfile.MeasurementUnit.Ounces, "Chicken"),
-				new AddMealProfile(4, Meal.MealType.DiabetesPrevention, 34, 5.7, "Holly", true, true, 43, 11, AddMealProfile.MeasurementUnit.Ounces, AddMealProfile.MeasurementUnit.Ounces,"Fiber"),
-				new AddMealProfile(5, Meal.MealType.EnergyBoost, 3.5, 5.5, "Adam", true, true, 43, 11, AddMealProfile.MeasurementUnit.Ounces, AddMealProfile.MeasurementUnit.Ounces, "Pasta"),
-				new AddMealProfile(6, Meal.MealType.DigestiveHealth, 1.4, 5.8, "Adam", true, true, 43, 11, AddMealProfile.MeasurementUnit.Ounces,AddMealProfile.MeasurementUnit.Ounces, "Probiotics"),
+				new AddMealProfile(1, Meal.MealType.HeartHealthy, 3, 5.8, "Matt", 43, 11, AddMealProfile.MeasurementUnit.Ounces, AddMealProfile.MeasurementUnit.Ounces,  true, true, "Olive Oil"),
+				new AddMealProfile(2, Meal.MealType.FatLoss, 3, 2.8, "Matt", 43, 11, AddMealProfile.MeasurementUnit.Ounces, AddMealProfile.MeasurementUnit.Ounces, true, true, "Kale"),
+				new AddMealProfile(3, Meal.MealType.MuscleGrowth, 5, 8.8, "Kate", 43, 11,  AddMealProfile.MeasurementUnit.Ounces, AddMealProfile.MeasurementUnit.Ounces, true, true, "Chicken"),
+				new AddMealProfile(4, Meal.MealType.DiabetesPrevention, 3, 5.8, "Holly",  43, 11, AddMealProfile.MeasurementUnit.Ounces, AddMealProfile.MeasurementUnit.Ounces, true, true, "Fiber"),
+				new AddMealProfile(5, Meal.MealType.EnergyBoost, 3, 5.7, "Adam", 43, 11, AddMealProfile.MeasurementUnit.Ounces, AddMealProfile.MeasurementUnit.Ounces, true, true, "Pasta"),
+				new AddMealProfile(6, Meal.MealType.DigestiveHealth, 1, .55, "Adam", 43, 11, AddMealProfile.MeasurementUnit.Ounces,AddMealProfile.MeasurementUnit.Ounces, true, true, "Probiotics"),
 
 
 
@@ -60,12 +60,12 @@ namespace Matt.Data
 			//Meal_Id = (int)mealType;
 			//PrepTime = prepTime;
 			//MealCost = mealCost;
-			//SpinachCheckbox = spinachCheckbox;
-			//TomatoCheckbox = tomatoCheckbox;
 			//SpinachQuantity = spinachQuantity;
 			//TomatoQuantity = tomatoQuantity;
 			//MeasurementTomato = measurementTomato;
 			// MeasurementSpinach = measurementSpinach;
+			//SpinachCheckbox = spinachCheckbox;
+			//TomatoCheckbox = tomatoCheckbox;
 			//Notes = notes;
 
 		  };
