@@ -75,33 +75,7 @@ namespace Matt.Controllers
 		[HttpPost]
 		public ActionResult Add(AddMealProfile addMealProfile)
 		{
-
-
-			if (ModelState.IsValidField("PrepTime") && addMealProfile.PrepTime <= 0)
-			{
-				ModelState.AddModelError("PrepTime", "The Prep Time field value must be greater than '0'.");
-			}
-
-			if (ModelState.IsValidField("MealCost") && addMealProfile.MealCost <= 0)
-			{
-				ModelState.AddModelError("MealCost", "The Meal Cost field value must be greater than '0'.");
-			}
-
-			if (ModelState.IsValidField("MealAuthor") && addMealProfile.MealAuthor == "" || addMealProfile.MealAuthor == null)
-			{
-				addMealProfile.MealAuthor = "Dr. Who";
-			}
-
-			// if the checkbox is not checked, then return null for respective quantities.
-			if (ModelState.IsValidField("TomatoQuantity") && addMealProfile.TomatoCheckbox == false)
-			{
-					addMealProfile.TomatoQuantity = null;
-			}
-
-			if (ModelState.IsValidField("SpinachQuantity") && addMealProfile.SpinachCheckbox == false)
-			{
-				addMealProfile.SpinachQuantity = null;
-			}
+			ValidateAddMealProfile(addMealProfile);
 
 			if (ModelState.IsValid)
 			{
@@ -126,7 +100,7 @@ namespace Matt.Controllers
 
 				ViewBag.MinutesSpentPreparing = minutesSpentPreparing;
 				ViewBag.AverageTimeSpentPreparingMeals = (minutesSpentPreparing / (double)numberOfMeals);
-			
+
 				ViewBag.TotalFoodCost = totalFoodCost;
 				ViewBag.AverageCostPerMeal = (totalFoodCost / (double)numberOfMeals);
 				ViewBag.CostPerMinuteOfPreparation = (totalFoodCost / minutesSpentPreparing);
@@ -134,18 +108,72 @@ namespace Matt.Controllers
 
 				_addMealProfilesRepository.AddAddMealProfile(addMealProfile);
 
-				
+
 				// here we want to stop continuous rePOSTS so we redirect to list, with no add object call
 				return RedirectToAction("Index");
 			}
 			// this will add the list of our meals enum to the dropdownfor: so in the future, don't manually add them to a dropdown form element.  use the DropDownFor method as seen here. along with the enum.
-			ViewBag.MealsSelectListItems = new SelectList(
-				Data.Data.Meals, "Id", "Name");
+			SetupMealsSelectListItems();
 
 			return View(addMealProfile);  // in this case, addMealProfile object is passed in to view
 		}
 
 
+
+
+		public ActionResult Edit(int? id)
+		{
+			if (id == null)
+			{
+				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+			}
+			// ToDo: get the request entry from the repository so that we can work with it and update it if need be.
+			// id is a nullable int, so we need to cast it to an int in order to pass it to the getEntry method.
+			AddMealProfile addMealProfile = _addMealProfilesRepository.GetAddMealProfile((int)id);
+
+
+			// if the entry is not found, return status of 'file not found'.
+			if (addMealProfile == null)
+			{
+				return HttpNotFound();
+
+			}
+
+			SetupMealsSelectListItems();
+		
+			// populate the activities select list items ViewBag property.
+
+
+			// pass the entry into the view.  
+			// we also need to set up a post action method for edit, just like we did for Add()
+			return View(addMealProfile);
+
+		}
+
+
+		// this method will accept an entry and return a call to View Entry.
+		// basically, addMealProfile is the grouping of properties from several classes that
+		// represent one type of entry -- a meal, having several characteristics.
+		[HttpPost]
+		public ActionResult Edit(AddMealProfile addMealProfile)
+		{
+			ValidateAddMealProfile(addMealProfile);
+			  
+			if (ModelState.IsValid)
+			{
+				_addMealProfilesRepository.UpdateAddMealProfile(addMealProfile);
+
+				return RedirectToAction("Index");
+			}
+
+
+
+			SetupMealsSelectListItems();
+			
+
+			return View(addMealProfile);
+
+		}
 
 
 
@@ -166,19 +194,46 @@ namespace Matt.Controllers
 		}
 
 
-		//Id = id;
-		//	// will return a number referencing the type of meal from a enum list.
-		//	Meal_Id = (int) mealType;
-		//  PrepTime = prepTime;
-		//	MealCost = mealCost;
-		//	MealAuthor = mealAuthor;
-		//	SpinachCheckbox = spinachCheckbox;
-		//	TomatoCheckbox = tomatoCheckbox;
-		//	SpinachQuantity = spinachQuantity;
-		//	TomatoQuantity = tomatoQuantity;
-		//	Notes = notes;
 
-		// i want to redirect to the ActionResults method 'Results(id)  where id is the meal they were just working with; 
-		// i will also need to add a few more categories maybe to the form submit Add HttpPost form.
+		private void ValidateAddMealProfile(AddMealProfile addMealProfile)
+		{
+			if (ModelState.IsValidField("PrepTime") && addMealProfile.PrepTime <= 0)
+			{
+				ModelState.AddModelError("PrepTime", "The Prep Time field value must be greater than '0'.");
+			}
+
+			if (ModelState.IsValidField("MealCost") && addMealProfile.MealCost <= 0)
+			{
+				ModelState.AddModelError("MealCost", "The Meal Cost field value must be greater than '0'.");
+			}
+
+			if (ModelState.IsValidField("MealAuthor") && addMealProfile.MealAuthor == "" || addMealProfile.MealAuthor == null)
+			{
+				addMealProfile.MealAuthor = "Dr. Who";
+			}
+
+			// if the checkbox is not checked, then return null for respective quantities.
+			if (ModelState.IsValidField("TomatoQuantity") && addMealProfile.TomatoCheckbox == false)
+			{
+				addMealProfile.TomatoQuantity = null;
+			}
+
+			if (ModelState.IsValidField("SpinachQuantity") && addMealProfile.SpinachCheckbox == false)
+			{
+				addMealProfile.SpinachQuantity = null;
+			}
+		}
+
+
+
+		private void SetupMealsSelectListItems()
+		{
+			ViewBag.MealsSelectListItems = new SelectList(
+							Data.Data.Meals, "Id", "Name");
+		}
+
+
+
+
 	}
 }
