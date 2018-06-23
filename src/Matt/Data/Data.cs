@@ -47,12 +47,12 @@ namespace Matt.Data
 			var addMealProfiles = new List<AddMealProfile>()
 			{
 
-				new AddMealProfile(1, Meal.MealType.HeartHealthy, 3, 5.8, "Matt", 43, 11, AddMealProfile.MeasurementUnit.Ounces, AddMealProfile.MeasurementUnit.Ounces,  true, true, "Olive Oil"),
-				new AddMealProfile(2, Meal.MealType.FatLoss, 3, 2.8, "Matt", 43, 11, AddMealProfile.MeasurementUnit.Ounces, AddMealProfile.MeasurementUnit.Ounces, true, true, "Kale"),
+				new AddMealProfile(1, Meal.MealType.HeartHealthy, 3, 5.8, "Matt", 3, 21, AddMealProfile.MeasurementUnit.Ounces, AddMealProfile.MeasurementUnit.Ounces,  true, true, "Olive Oil"),
+				new AddMealProfile(2, Meal.MealType.FatLoss, 3, 2.8, "Matt", 63, 31, AddMealProfile.MeasurementUnit.Ounces, AddMealProfile.MeasurementUnit.Ounces, true, true, "Kale"),
 				new AddMealProfile(3, Meal.MealType.MuscleGrowth, 5, 8.8, "Kate", 43, 11,  AddMealProfile.MeasurementUnit.Ounces, AddMealProfile.MeasurementUnit.Ounces, true, true, "Chicken"),
-				new AddMealProfile(4, Meal.MealType.DiabetesPrevention, 3, 5.8, "Holly",  43, 11, AddMealProfile.MeasurementUnit.Ounces, AddMealProfile.MeasurementUnit.Ounces, true, true, "Fiber"),
-				new AddMealProfile(5, Meal.MealType.EnergyBoost, 3, 5.7, "Adam", 43, 11, AddMealProfile.MeasurementUnit.Ounces, AddMealProfile.MeasurementUnit.Ounces, true, true, "Pasta"),
-				new AddMealProfile(6, Meal.MealType.DigestiveHealth, 1, .55, "Adam", 43, 11, AddMealProfile.MeasurementUnit.Ounces,AddMealProfile.MeasurementUnit.Ounces, true, true, "Probiotics"),
+				new AddMealProfile(4, Meal.MealType.DiabetesPrevention, 3, 5.8, "Holly",  73, 16, AddMealProfile.MeasurementUnit.Ounces, AddMealProfile.MeasurementUnit.Ounces, true, true, "Fiber"),
+				new AddMealProfile(5, Meal.MealType.EnergyBoost, 3, 5.7, "Adam", 83, 41, AddMealProfile.MeasurementUnit.Ounces, AddMealProfile.MeasurementUnit.Ounces, true, true, "Pasta"),
+				new AddMealProfile(6, Meal.MealType.DigestiveHealth, 1, .55, "Adam", 33, 12, AddMealProfile.MeasurementUnit.Ounces,AddMealProfile.MeasurementUnit.Ounces, true, true, "Probiotics"),
 
 
 
