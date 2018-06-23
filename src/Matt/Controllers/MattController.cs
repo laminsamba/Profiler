@@ -92,7 +92,6 @@ namespace Matt.Controllers
 				addMealProfile.MealAuthor = "Dr. Who";
 			}
 
-
 			// if the checkbox is not checked, then return null for respective quantities.
 			if (ModelState.IsValidField("TomatoQuantity") && addMealProfile.TomatoCheckbox == false)
 			{
@@ -103,8 +102,6 @@ namespace Matt.Controllers
 			{
 				addMealProfile.SpinachQuantity = null;
 			}
-
-
 
 			if (ModelState.IsValid)
 			{
@@ -136,8 +133,9 @@ namespace Matt.Controllers
 
 				_addMealProfilesRepository.AddAddMealProfile(addMealProfile);
 
-
-				return View("Index", addMealProfiles);
+				
+				// here we want to stop continuous rePOSTS so we redirect to list, with no add object call
+				return RedirectToAction("Index");
 			}
 			// this will add the list of our meals enum to the dropdownfor: so in the future, don't manually add them to a dropdown form element.  use the DropDownFor method as seen here. along with the enum.
 			ViewBag.MealsSelectListItems = new SelectList(
