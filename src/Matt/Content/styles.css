@@ -47,9 +47,6 @@ body {
 }
 
 
-th {
-    margin-right: 0;
-}
 
 /***********************************************************/
 /***********************************************************/
@@ -211,7 +208,7 @@ th {
 /* edit button on home(index) list page*/
 .btn-warning {
     width: 58px;
-    margin-bottom: 10px;
+    
 }
 
 .add-view-cancel-btn {
@@ -426,7 +423,11 @@ li {
 
 @media only screen and (min-width: 600px) and (orientation: landscape) {
     /*  index.html main section images styling  */
+
+
+
    
+
 }
 /* end 700px min-width and landscape orientation media query  */
 
@@ -434,6 +435,13 @@ li {
 
 /* laying out the two child items in the parent .row-3 and row-2 as flex items; flex-direction: row; by default  */
 @media (min-width: 700px) {
+
+
+    /* edit button on home(index) list page*/
+    .btn-warning {
+        width: 58px;
+        margin-bottom: 5px;
+    }
 
     /* flex parent container holding three flex-column items */
     .row-3 {
@@ -498,6 +506,12 @@ li {
         height: 350px;
         
     }
+
+    /* edit button on home(index) list page*/
+    .btn-warning {
+        width: 58px;
+        margin-bottom: 0px;
+    }
 }
 /* end 769 media query */
 
@@ -507,6 +521,9 @@ li {
     #mission {
         font-size: 3em;
     }
+
+  
+   
 }
 /* end 969 media query */
 
@@ -539,7 +556,9 @@ li {
     .backgroundHeader1 {
         margin-top: 83px;
     }
-   
+
+  
+  
 }
 /* end 990 media query */
 
