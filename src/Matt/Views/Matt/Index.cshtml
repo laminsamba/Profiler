@@ -32,7 +32,7 @@
 
 
 
-<div class="stats mx-3 p-3 bg-primary">
+<div class="stats mx-3 p-3 bg-success">
     <h2 class="stats-header h3">Meal Expense Running Totals</h2>
 
     <div class="stats-left mx-3 p-3">
@@ -64,6 +64,7 @@
         <th>Meal Prep Time</th>
         @* i couldn't get the hidden class to work...ill leave the comment in as an idea to research later. *@
         <th class="">Meal Author</th>
+        <th class="">Meal Id</th>
         <th>&nbsp;</th>
     </tr>
     @* we are working with single AddMealProfile objects at a time here in the Model of List<AddMealProfile> objects. *@
@@ -75,6 +76,7 @@
             <td>@addMealProfile.MealCost</td>
             <td>@addMealProfile.PrepTime</td>
             <td class="">@addMealProfile.MealAuthor</td>
+            <td class="">@addMealProfile.Id</td>
             <td>
                 <div class="pull-right">
                     <a href="#" class="btn btn-warning btn-sm margin-right">

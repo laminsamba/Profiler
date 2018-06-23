@@ -153,13 +153,9 @@ namespace Matt.Controllers
 
 
 		// id is the path id in the address bar
-		public ActionResult Results(int? id)
+		public ActionResult Results()
 		{
-			// accounting for possible null value and returning HttpNotFound(); error
-			if (id == null)
-			{
-				return HttpNotFound();
-			}
+		
 			// the specific meal instance returned from our makeshift database. we need to explicit cast ((int)id)
 			// or use the value property of id:  (id.Value)
 
