@@ -1,10 +1,13 @@
-﻿
+﻿@model Matt.Models.AddMealProfile
+
+
+
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Edit Entry";
 }
 
-<h2>Edit</h2>
+<h2>@ViewBag.Title</h2>
 
-
+@Html.Partial("_EntryForm")
 
 

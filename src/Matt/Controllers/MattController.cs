@@ -166,14 +166,37 @@ namespace Matt.Controllers
 				return RedirectToAction("Index");
 			}
 
-
-
 			SetupMealsSelectListItems();
 			
-
 			return View(addMealProfile);
-
 		}
+
+
+		public ActionResult Delete(int? id)
+		{
+			AddMealProfile addMealProfile = _addMealProfilesRepository.GetAddMealProfile((int)id);
+
+			if (id == null)
+			{
+				return HttpNotFound();
+			}
+			return View(addMealProfile);
+		}
+
+
+
+		[HttpPost]
+		public ActionResult Delete(int id)
+		{
+			_addMealProfilesRepository.DeleteAddMealProfile(id);
+
+
+			return RedirectToAction("Index");
+		}
+
+
+
+
 
 
 
