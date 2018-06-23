@@ -37,7 +37,8 @@ body {
     line-height: 1.6;
     background: linear-gradient(0deg, black, transparent 80%), linear-gradient(180deg, black, transparent 80%), red;
     color: yellow;
-    
+    font-size: 12px;
+
 }
 
 /* creating sticky-footer on small viewport heights and greater */
@@ -45,6 +46,10 @@ body {
     min-height: calc(100vh - 126px); /*   -81 secondary footer  -45 main-fixed-footer */
 }
 
+
+th {
+    margin-right: 0;
+}
 
 /***********************************************************/
 /***********************************************************/
@@ -159,6 +164,7 @@ body {
 #welcome-create, h2, h3 {
     margin-top: 50px;
     text-shadow: rgba(255,255,255,0.5) 0px 3px 3px;
+    font-size: 20px;
 }
 
 
@@ -266,6 +272,7 @@ h1 {
 
 h2 {
     margin: 20px 0;
+  
 }
 
     h2 > a {
@@ -563,6 +570,9 @@ li {
         height: 70px;
     }
 
+    .backgroundHeader1 {
+        margin-top: 103px;
+    }
    
 }
 
