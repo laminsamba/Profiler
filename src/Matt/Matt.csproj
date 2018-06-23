@@ -156,6 +156,7 @@
     <Content Include="Views\Matt\Results.cshtml" />
     <Content Include="Views\Matt\Edit.cshtml" />
     <Content Include="Views\Matt\_EntryForm.cshtml" />
+    <Content Include="Views\Matt\Delete.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
