@@ -79,6 +79,8 @@ namespace Matt.Controllers
 
 			if (ModelState.IsValid)
 			{
+
+
 				// here we set the variable List<AddMealProfile> addMealProfiles to an instance of our data 
 				// AddMealProfiles.  we assigned AddMealProfiles to a private List<AddMealProfile> so that it can't be changed
 				// before we are ready to work with it in the ActionResult method.
@@ -107,7 +109,7 @@ namespace Matt.Controllers
 				ViewBag.MinutesPreparingPerDollarSpent = (minutesSpentPreparing / totalFoodCost);
 
 				_addMealProfilesRepository.AddAddMealProfile(addMealProfile);
-
+				TempData["Message"] = "Your meal entry was successfully added!";
 
 				// here we want to stop continuous rePOSTS so we redirect to list, with no add object call
 				return RedirectToAction("Index");
@@ -162,6 +164,7 @@ namespace Matt.Controllers
 			if (ModelState.IsValid)
 			{
 				_addMealProfilesRepository.UpdateAddMealProfile(addMealProfile);
+				TempData["Message"] = "Your meal entry was successfully updated.";
 
 				return RedirectToAction("Index");
 			}
@@ -189,7 +192,7 @@ namespace Matt.Controllers
 		public ActionResult Delete(int id)
 		{
 			_addMealProfilesRepository.DeleteAddMealProfile(id);
-
+			TempData["Message"] = "Your meal entry was successfully removed.";
 
 			return RedirectToAction("Index");
 		}
