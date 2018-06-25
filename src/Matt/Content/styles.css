@@ -258,7 +258,7 @@ p {
     max-width: 800px;
     text-align: center;
     font-size: .9em;
-    color: black;
+    color: white;
     padding-left: 1em;
     padding-right: 1em;
     margin: 12px auto;
@@ -307,6 +307,8 @@ h4 {
     text-align: center;
     padding: 20px;
     font-weight: bold;
+    
+    
 }
 
 /*  Changing the default bullets for lists to no list-style */

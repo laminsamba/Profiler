@@ -236,7 +236,29 @@ namespace Matt.Controllers
 		}
 
 
+		// id is returned from the address bar path at present, but after i set up clickable linked images
+		// then the ingredient id will be set up that way.
+		public ActionResult Detail(int? id)
+		{
+			if (id == null)
+			{
+				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+			}
 
+			// i initialized in the ingredient constructor an Id = 1;
+			// i used .Value to cast the int? to int.  could have casted explicitly also.
+			var ingredient = _ingredientsRepository.GetIngredient(id.Value);
+
+
+			ViewBag.DictionaryType = IngredientEncyclopediaEntry.TomatoDictionary;
+
+
+
+
+
+			return View(ingredient);
+
+		}
 
 
 

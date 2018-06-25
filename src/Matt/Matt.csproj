@@ -161,6 +161,7 @@
     <Content Include="Views\Matt\_EntryForm.cshtml" />
     <Content Include="Views\Matt\Delete.cshtml" />
     <Content Include="Views\Matt\ProfileGallery.cshtml" />
+    <Content Include="Views\Matt\Detail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

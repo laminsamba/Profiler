@@ -133,11 +133,11 @@
                             // inner foreach to print out all of the ingredient nutrition modified
                             // by the formula (Base * Quantity * Units) where grams will have a fictitious unit multiplier.
 
-
+                        // may refactor Ingredient type to name change of IngredientEncyclopediaEntry
                             double qty = (double)meal.SpinachQuantity;
 
                             foreach (KeyValuePair<string, int>
-                                        pair in Ingredient.SpinachDictionary)
+                                        pair in IngredientEncyclopediaEntry.SpinachDictionary)
                             {
                                 string nutritionType = pair.Key;
                                 int baseNutritionIntValue = pair.Value;
@@ -215,7 +215,7 @@
                             </thead>
 
                             double qty2 = (double)meal.TomatoQuantity;
-                            foreach (KeyValuePair<string, int> pair in Ingredient.TomatoDictionary)
+                            foreach (KeyValuePair<string, int> pair in IngredientEncyclopediaEntry.TomatoDictionary)
                             {
                                 string nutritionType = pair.Key;
                                 int baseNutritionIntValue = pair.Value;
