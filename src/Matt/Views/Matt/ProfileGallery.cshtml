@@ -1,0 +1,101 @@
+﻿@model Matt.Models.IngredientEncyclopediaEntry[]
+
+
+@{
+
+    ViewBag.Title = "Ingredient Gallery";
+
+}
+
+
+
+<body>
+
+    <!-- Page Content -->
+    <div class="container">
+        <h1 class="my-4 text-center text-lg-left">@ViewBag.Title</h1>
+        <div class="row text-center text-lg-left">
+            @foreach (var ingredient in Model)
+            {
+                // parameters for the Html>ActionLink helper method are (linkTextWe want to see, string literal for the ActionResult Name parameter of the view we want, new {})</h4>
+                // this will send us to the Detail.cshtml  View on mouse click.
+            <div class="col-lg-3 col-md-4 col-xs-6">
+                <h4>
+                    @Html.ActionLink(@ingredient.IngredientName, "Detail",
+                        new { id = ingredient.Id })
+                </h4>
+
+                @*We will use Razor to set the href attribute value.  the @Url.Action method provides a signature overload for
+                    Action Name, routing value.    @Url.Action(ActionName, RoutingValue)
+                    Url.ActionLink methods differ and Url.Action methods differ in that the Html.ActionLink method generates
+                    a complete <a> element whereas the Url.Action method just generates a URL string. *@
+
+
+                <a href="@Url.Action("Detail", new { id = ingredient.Id })" class="d-block mb-4 h-100">
+                    <img src="~/Images/tomato.jpg" class="img-fluid img-thumbnail" alt="new roots header image of vegetables">
+                </a>
+            </div>
+                <div class="col-lg-3 col-md-4 col-xs-6">
+                    <p>Carrot</p>
+                    <a href="#" class="d-block mb-4 h-100">
+                        <img src="~/Images/carrot.jpg" class="img-fluid img-thumbnail" alt="new roots header image of vegetables">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-xs-6">
+                    <p>Potato</p>
+                    <a href="#" class="d-block mb-4 h-100">
+                        <img src="~/Images/potato2.jpg" class="img-fluid img-thumbnail" alt="new roots header image of vegetables">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-xs-6">
+                    <p>Pepper</p>
+                    <a href="#" class="d-block mb-4 h-100">
+                        <img src="~/Images/pepper.jpg" class="img-fluid img-thumbnail" alt="new roots header image of vegetables">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-xs-6">
+                    <a href="#" class="d-block mb-4 h-100">
+                        <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-xs-6">
+                    <a href="#" class="d-block mb-4 h-100">
+                        <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-xs-6">
+                    <a href="#" class="d-block mb-4 h-100">
+                        <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-xs-6">
+                    <a href="#" class="d-block mb-4 h-100">
+                        <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-xs-6">
+                    <a href="#" class="d-block mb-4 h-100">
+                        <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-xs-6">
+                    <a href="#" class="d-block mb-4 h-100">
+                        <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-xs-6">
+                    <a href="#" class="d-block mb-4 h-100">
+                        <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-xs-6">
+                    <a href="#" class="d-block mb-4 h-100">
+                        <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+    </body>
+    </html>

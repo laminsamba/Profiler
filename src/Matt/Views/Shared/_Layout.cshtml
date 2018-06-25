@@ -10,7 +10,7 @@
 
 
     ViewBag.Title = "Welcome to Meal Profiler";
-
+    
 
 
 
@@ -30,6 +30,13 @@
     <title>@ViewBag.Title</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    
+    <!-- Bootstrap core CSS -->
+    <link href="~/Content/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="~/Content/thumbnail-gallery.css" rel="stylesheet">
+    <!-- these are for the thumbnail gallery-->
+
     <link href="~/Content/styles.css" rel="stylesheet" type="text/css">  <!--I list this css file second in case I need to override the normalize.css file, as the last file listed takes precedence in the css stack -->
 </head>
 
@@ -80,15 +87,15 @@
         </header>
 
 
-      
-        
-            <div class="backbar">
-                <div>
-                    @Html.ActionLink("Home: Meal Summary", "Index", new { @class = "btn btn-default" })
 
-                </div>
+
+        <div class="backbar">
+            <div>
+                @Html.ActionLink("Home: Meal Summary", "Index", new { @class = "btn btn-default" })
+
             </div>
-        
+        </div>
+
 
 
         <div class="container body-content">
@@ -132,6 +139,10 @@
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
     <script src="~/Scripts/jquery.validate.bootstrap.js"></script>
+    <!-- Bootstrap core JavaScript these 2 files are for the thumbnail gallery -->
+    <script src="~/Scripts/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Scripts/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap core JavaScript these 2 files are for the thumbnail gallery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>

@@ -135,12 +135,14 @@
     <Compile Include="Controllers\MattController.cs" />
     <Compile Include="Data\AddMealProfilesRepository.cs" />
     <Compile Include="Data\Data.cs" />
+    <Compile Include="Data\IngredientsRepository.cs" />
     <Compile Include="Data\MealsRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AddMealProfile.cs" />
     <Compile Include="Models\Ingredient.cs" />
+    <Compile Include="Models\IngredientEncyclopediaEntry.cs" />
     <Compile Include="Models\Meal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -158,6 +160,7 @@
     <Content Include="Views\Matt\Edit.cshtml" />
     <Content Include="Views\Matt\_EntryForm.cshtml" />
     <Content Include="Views\Matt\Delete.cshtml" />
+    <Content Include="Views\Matt\ProfileGallery.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

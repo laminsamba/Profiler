@@ -16,6 +16,7 @@ namespace Matt.Controllers
 
 		private AddMealProfile _addMealProfiles = null;
 		private AddMealProfilesRepository _addMealProfilesRepository = null;
+		private IngredientsRepository _ingredientsRepository = null;
 
 		// constructor for the MattController that calls the AddMealProfile() Class and assigns it 
 		// to the private variable _addMealProfiles      and again for _addMealProfilesRepository
@@ -23,6 +24,7 @@ namespace Matt.Controllers
 		{
 			_addMealProfiles = new AddMealProfile();
 			_addMealProfilesRepository = new AddMealProfilesRepository();
+			_ingredientsRepository = new IngredientsRepository();
 		}
 
 		public ActionResult Index()
@@ -221,6 +223,23 @@ namespace Matt.Controllers
 
 
 
+		// add index action method; needs to be public and return and ActionResult object
+		public ActionResult ProfileGallery()
+		{
+
+			// passing a _ingredientRepository array to the ingredient variable; this will make the array available 
+			// via the View's Model property.
+			var ingredients = _ingredientsRepository.GetIngredients();
+			return View(ingredients);
+
+
+		}
+
+
+
+
+
+
 		private void ValidateAddMealProfile(AddMealProfile addMealProfile)
 		{
 			if (ModelState.IsValidField("PrepTime") && addMealProfile.PrepTime <= 0)
@@ -250,6 +269,8 @@ namespace Matt.Controllers
 			}
 		}
 
+
+		
 
 
 		private void SetupMealsSelectListItems()
